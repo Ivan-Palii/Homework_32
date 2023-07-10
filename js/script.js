@@ -154,3 +154,30 @@ for (let item of linkList)
 // сторінки і пропасти через 3 секунди.
 
 
+let customAlert = document.querySelector('.alert__window')
+let customAlertWrapper = document.querySelector('.alert__wrapper')
+
+const customCreatedAlertWrapper = document.createElement('div')
+customCreatedAlertWrapper.classList.add('alert__wrapper')
+
+const customCreatedAlert = document.createElement("div")
+customCreatedAlert.classList.add('alert__window', 'alert__window_inactive')
+
+const customCreatedAlertText = document.createElement('p')
+customCreatedAlertText.classList.add('alert__text')
+customCreatedAlertText.innerText = 'Some alert text'
+
+customCreatedAlert.append(customCreatedAlertText)
+customCreatedAlertWrapper.append(customCreatedAlert)
+
+document.body.append(customCreatedAlertWrapper)
+
+function switchAlert() {
+	customCreatedAlert.classList.toggle('alert__window_inactive')
+	customCreatedAlert.classList.toggle('alert__window_active')
+	customCreatedAlertWrapper.classList.toggle('alert__wrapper__active')
+}
+
+setTimeout(switchAlert, 1000)
+setTimeout(switchAlert, 4000)
+
